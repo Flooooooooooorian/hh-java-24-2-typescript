@@ -102,10 +102,58 @@ const searchName: string | undefined = myArray.map((name) => name.toUpperCase())
     .filter(name => name.length > 5)
     .find(name => name.startsWith("F"))
 
-if (searchName === undefined) {
-    return;
+console.log(searchName)
+
+type Status = "OPEN" | "IN_PROGRESS" | "DONE"
+
+interface Character2 {
+    id: number,
+    name: string
+    favoriteProgrammingLanguages: string[]
+    status: Status
 }
 
-console.log(searchName.length)
+const today = new Date()
 
-console.log(searchName)
+console.log(today)
+
+type Character = {
+    id: number,
+    name: string
+    favoriteProgrammingLanguages: string[],
+    status: Status,
+    doSomething: (p1: number, p2: number) => number
+}
+
+type MyFunction = (param1: number) => number
+
+const f1 = (p1: number, p2: number) => p1 + p2
+
+function f2(p1: number, p2: number) {
+    return p1 * p2;
+}
+
+const myCharacter: Character = {
+    id: 1,
+    name: "Florian",
+    favoriteProgrammingLanguages: ["Java", "TypeScript"],
+    status: "OPEN",
+    doSomething: f1
+}
+
+const secondCharacter: Character = {
+    id: 2,
+    name: "Max",
+    favoriteProgrammingLanguages: ["C++", "C"],
+    status: "IN_PROGRESS",
+    doSomething: f2
+}
+
+
+console.log(myCharacter)
+console.log(secondCharacter)
+console.log(myCharacter.status)
+
+console.log(Object.values(myCharacter))
+
+console.log(myCharacter.doSomething(6, 2))
